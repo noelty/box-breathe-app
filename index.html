@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Box Breathe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Box Breathing</h1>
+
+    <section class="stage" aria-live="polite">
+      <svg viewBox="-8 -8 116 116" class="box" aria-hidden="true">
+        <rect x="0" y="0" width="100" height="100" rx="4" class="track"/>
+        <g id="sides">
+          <line id="side0" x1="0" y1="100" x2="0" y2="0"/>
+          <line id="side1" x1="0" y1="0" x2="100" y2="0"/>
+          <line id="side2" x1="100" y1="0" x2="100" y2="100"/>
+          <line id="side3" x1="100" y1="100" x2="0" y2="100"/>
+        </g>
+        <circle id="dot" cx="0" cy="100" r="4.5"/>
+      </svg>
+      <div class="center">
+        <div id="count">4</div>
+        <div id="phase">Ready</div>
+      </div>
+    </section>
+
+    <div class="steps" id="steps"></div>
+
+    <div class="controls">
+      <button id="start" class="primary">Start</button>
+      <button id="stop" disabled>Stop</button>
+    </div>
+
+    <div class="stats">
+      <span>Rounds: <b id="rounds">0</b><span id="roundsTarget"></span></span>
+      <span>Time: <b id="elapsed">0:00</b></span>
+    </div>
+
+    <details open>
+      <summary>Settings</summary>
+      <form id="settings">
+        <label>Breathe in (s) <input type="number" id="in" min="1" max="60" step="1"></label>
+        <label>Hold (s) <input type="number" id="hold1" min="0" max="60" step="1"></label>
+        <label>Breathe out (s) <input type="number" id="out" min="1" max="60" step="1"></label>
+        <label>Hold (s) <input type="number" id="hold2" min="0" max="60" step="1"></label>
+        <label>Rounds (0 = endless) <input type="number" id="target" min="0" max="999" step="1"></label>
+        <label class="check"><input type="checkbox" id="sound"> Sound cue</label>
+        <label class="check"><input type="checkbox" id="vibrate"> Vibrate</label>
+        <button type="button" id="reset">Reset to 4-4-4-4</button>
+      </form>
+    </details>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
